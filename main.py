@@ -76,3 +76,26 @@ def findPath(pathsToHere, startPoint):
     pointInfo[4] = 0
     # No path found
     return None
+
+# All found paths
+paths = []
+# For every starting point
+for p in SP:
+    # Find a escape path from the starting point
+    path = findPath([], p)
+    # If there is an escape path
+    if path != None:
+        paths.append(path)
+
+# If any escape path found
+if len(paths) != 0:
+    print(str(len(paths)) + " paths found:")
+    # Print all paths
+    for path in paths:
+        print("\t " + str(path))
+# If no escape path found
+else:
+    print("No path found.")
+    # Exit the program successfully
+    sys.exit(0)
+
