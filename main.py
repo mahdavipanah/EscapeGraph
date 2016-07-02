@@ -90,9 +90,16 @@ for p in SP:
 # If any escape path found
 if len(paths) != 0:
     print(str(len(paths)) + " paths found:")
-    # Print all paths
-    for path in paths:
-        print("\t " + str(path))
+    # For every starting point
+    for sp in SP:
+        # The path that contains this starting point
+        spPath = [path for path in paths if any(p for p in path if sp == p)]
+        # Check if starting point has an escape algorithm
+        if len(spPath) != 0:
+            print("\t" + str(sp) + ": " + str(spPath))
+        else:
+            print("\t" + str(sp) + ": Has no escape path.")
+
 # If no escape path found
 else:
     print("No path found.")
