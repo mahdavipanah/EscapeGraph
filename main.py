@@ -40,3 +40,39 @@ def getNeighborPoint(point, dir):
     else:
         neighborPoint[0] += 1
     return neighborPoint
+
+# Complete the path to border from the startPint and using pathsToHere
+def findPath(pathsToHere, startPoint):
+    pointInfo = W[startPoint[0]][startPoint[1]]
+
+    # Check if current point exists in another found path
+    if isPointSeen(pointInfo):
+        # There is no path from current point to borders
+        return None
+
+    # Mark this node as seen
+    pointInfo[4] = 1
+    # Check if the current point is a border point
+    if isBorderPoint(pointInfo):
+        # Add current point to the path
+        pathsToHere.append(startPoint)
+        # Return the completed path
+        return pathsToHere
+
+    # Traverse every four direction of the node
+    for dir in range(0, 4):
+        # If the direction has no edge
+        if pointInfo[dir] == 0:
+            continue
+        # Add current point to path
+        pathWithCurrent = pathsToHere[:]
+        pathWithCurrent.append(startPoint)
+        # Find a path from this direction
+        foundPath = findPath(pathWithCurrent, getNeighborPoint(startPoint, dir))
+        # If there is a path from this direction
+        if foundPath != None:
+            return foundPath
+    # Mark this node as not seen, because no path found
+    pointInfo[4] = 0
+    # No path found
+    return None
