@@ -34,6 +34,14 @@ def file_to_grid(filename):
                 SP.append(line.rstrip(linesep).split(' '))
     # Convert chars in W to int
     W = [[[int(n) for n in column]for column in row] for row in W]
+
+    # Append a item to list and return the list
+    def apnd(lst, item):
+        lst.append(item)
+        return lst
+    # Adds a fifth item in every node which indicates whether that node has been seen or not
+    W = [[apnd(column, 0) for column in row] for row in W]
+
     # Convert chars in SP to int
     SP = [[int(i) for i in p]for p in SP]
     return (W, SP)
