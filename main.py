@@ -24,3 +24,19 @@ def isPointSeen(point):
         return True
     return False
 
+# Get the point of the next neighbor
+def getNeighborPoint(point, dir):
+    neighborPoint = point[:]
+    # Left
+    if dir == 0:
+        neighborPoint[1] -= 1
+    # Right
+    elif dir == 1:
+        neighborPoint[1] += 1
+    # Up
+    elif dir == 2:
+        neighborPoint[0] -= 1
+    # Down (dir == 3)
+    else:
+        neighborPoint[0] += 1
+    return neighborPoint
