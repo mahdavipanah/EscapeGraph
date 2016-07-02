@@ -18,4 +18,9 @@ def isBorderPoint(point):
             return True
     return False
 
+# Check if the point has been seen
+def isPointSeen(point):
+    if point[4] == 1:
+        return True
+    return False
 
