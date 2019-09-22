@@ -1,5 +1,5 @@
-# Problem's describtion
-![Problem's describtion](https://gitlab.com/mahdavipanah/EscapeGraph/raw/e09755d9daafe3df744f58ebe4a5dcdac1c9d1e4/describtion.jpg)
+# Problem's description
+![Problem's description](./description.jpg)
 
 # Problem's assumptions
 1. Every escape path sould have it's unique set of vertices.
